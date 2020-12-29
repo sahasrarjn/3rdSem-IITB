@@ -1,0 +1,14 @@
+1)
+	a) Unbiased
+	b) Both
+	c) Yes, Fisher Information = 1/sigma^2, 	 Var(\hat \mu) = 1/F.I.
+	d) Find the mean estimates (\sum x_i / n), hist(abs(\mu_y - \mu_x))
+
+
+3) Degree of freedom = 2, algo: PCA find X, Y axis (largest 2). all data points can be represented using these
+4) 	p(Z) = 1/pi*(1+z^2)
+   	p(Y) = -1/pi*(1+y^2)
+	p(X = 1/Z) = 1/b*(pi)*(1+((x-a)/b)^2)
+	------------
+	p(p(X)) = b/ * ((x-a)/b + b/(x-a))
+

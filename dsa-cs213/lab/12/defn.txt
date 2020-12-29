@@ -1,0 +1,12 @@
+a  n  b
+X_ab
+X(1)_ab = max(X1_an + X1_bn + n1,X2_an + X3_nb + n2)
+
+X(2)_ab = max(X1_an + X2_nb + n1,X2_an + X4_nb + n2)
+
+X(3)_ab = max(X3_an + X1_nb + n1,X4_an + X3_nb +  n2)
+
+X(4)_ab = max(X3_an + X2_nb + n1 + 1, X4_an +X4_nb + n2)
+
+a1 = max(X1_an + n1 +1,X3_na + n2)
+a2 = max(X2_na + n1 +1, X4_na + n2)

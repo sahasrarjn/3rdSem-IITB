@@ -1,0 +1,12 @@
+
+///////
+	To find the max distance (A[i] can be -ve), we can find all the possible path from 0 to n-1: 
+		1. Do dfs (adj list) starting from 0
+		2. Keep storing the visited vertices in an HashMap (path[]). Also keep storing the path length till now.
+		3. If it reaches vertex push the path length in a vector (say final)
+		4. Backtrack to get the next path and do the same for this path.
+
+		Now we have all the path length from 0 to n-1
+
+		5. Find max final and return;
+////////

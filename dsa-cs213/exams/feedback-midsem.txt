@@ -1,0 +1,281 @@
+1			
+		Comments: I defined max, min for (0,0) too, which I will use to define for N
+		a) Max:
+				max(0, 0) = 0
+				max(x, x) = x   											for all x belongs to N
+				max(x, y) = max(y, x)										for all x,y belongs to N
+
+				max(next(x), x) = next(x)									for all x belongs to N
+
+				if max(x, y) == y, 	then max(x, next(y)) = next(y)			for all x,y belogns to N
+				
+				max(x,y) = max(next(x), next(y))
+
+
+
+
+
+		   Min:
+				min(0, 0) = 0
+				min(x, x) = x   											for all x belongs to N
+				min(x, y) = min(y, x)										for all x,y belongs to N
+
+				min(next(x), x) = x											for all x belongs to N
+
+				if min(x, y) == y, 	then min(x, next(y)) = x				for all x,y belogns to N
+
+				min(x,y) = min(next(x), next(y))
+				
+		This is wrong! (1) Too many unnecessary things.
+                 ----------------------------------------------------
+
+
+		b)	To prove: add(x,y) = add(max(x,y),min(x,y))
+
+
+
+			max(x,x) = x = min(x,x)					for all x belongs to N
+
+			max(next(x), x) = next(x)
+			min(next(x), x) = x
+ 
+			if(max(y,x) == y)
+				min(x,y) = x   					(y = next(next(...(x))))
+
+			and, max(x,y) = max(y,x)
+				 min(x,y) = min(y,x)
+
+			therfore,	add(x,y) = add(max(x,y), min(x,y)) = add(y,x) = add(x,y) 	(if(max(x,y)==y))
+						add(x,y) = add(max(x,y), min(x,y)) = add(x,y) 				(if(max(x,y)==x))
+
+This is not a proof. You are assuming many properties that do not follow from definition.
+Understand what is required first. (0)
+------------------------------------------
+
+
+
+		c) To prove: add(min(x,y),z) = min(add(x,z),add(y,z))
+
+			// for x,y belongs to N (for all statements below)
+			min(x,y) = add(min(x,y), 0) = min(add(x,0), add(y,0)) = min(x,y)
+
+			add(min(x,y), next(z)) = min(add(x,next(z)), add(y,next(z))) = min(next(add(x,z)), next(add(y,z))) = min(add(x,z), add(y,z))    	{min(x,y) = min(next(x), next(y))}
+
+
+You are using a wrong definition to prove a wrong thing. But the approach is correct. If you had defined
+correctly this would have worked. (2)
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+2	// Assumption: 
+
+
+	class partition{
+		int *part;  		// part[ element_index ] - part_index
+		int *size;  		// Size of each parts
+		int num_parts 		// No. of parts
+		int max_part		// Max part size
+		int last_max
+		queue <int> empty 	// Stores the empty part indices, queue/ stack or any othes data str with O(1) push pop
+
+Okay, but cannot maintain max_part with just this.
+-------------------------------------------------
+
+		// O(n) loop
+		initialize(n){
+			part = new int[n];
+			size = new int[n];
+
+			num_parts = n;
+			max_part = 1;
+			last_max = 1;
+
+			for (int i=0; i<n; i++){
+				part[i] = i;
+				size[i] = 1;
+			}
+		}
+
+		// O(1)
+		void split(i){
+			if(  size[part[i]] == 1  ) return;
+
+			part[i] = get first elem of the empty queue and pop it;
+			num_parts++;
+			
+			if(size[part[i]] == max_part){
+				if(max_part > last_part) max_part--;
+				else if(max_part == last_part){
+					max_part = last_part;
+					last_part = last_part-1;
+				}
+			}
+			
+			Not enough to remember just the last_part.
+			---------------------------------------------
+
+			size[part[i]]--;
+
+		}
+
+		// O(1)
+		void shift(i, j){
+			if(part[i] == part[j]) return;
+
+			if(size[part[i]] == 1){
+				size[part[i]] = 0;
+				num_parts--;
+				queue.push(part[i]);
+				part[i] = part[j];
+				size[part[j]]++;
+			}
+
+			size[part[i]]--;
+			part[i] = part[j];
+			size[part[j]]++;
+		}
+
+		int num_parts(){
+			return num_parts
+		}
+
+		int max_part(){
+			return max_part;
+		}
+
+// Assume Q[i] to be Q.part[i] and P[i] to be part[i]
+		meet(Q){
+			for(int i=0; i<n; i++){
+				if(Q[i] == P[i]) continue;
+				split(i)
+			}
+		}
+		
+		No!.
+
+
+
+		join(Q){
+			// Intersection of Q and *this
+			T = new partition;
+
+			for(int i=0; i<n; i++){
+				
+			}
+		}
+
+
+	};
+
+
+Okay, but max_part not handled correctly. (5)
+---------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+3
+  a)
+	Say the element a[i] is contained in two maximal substrings viz. (a[i2], a[i3]) & (a[i1], a[i4]) for i1 < i2 <= e <= i3 < i4. But a[i1] < a[i2] and a[i3] < a[i4] (defn of well formed substr). So i2-i3 substr is a proper subset of  i1-i4 substr therefore it is not a maximal substr. Hence contradicted. So every element exists in a single maxiaml substr. Thus every sequence can be written uniquely as the concatenation of maximal well- formed substrings of the sequence.
+	
+	Why should it be contained in one? (2)
+	----------------------------------------
+
+
+
+  b)
+  
+  Explain the logic first.
+  --------------------------
+  
+  	last_min = a[0];
+  	last_max = a[0];
+  	vector <int> max_str_index; 
+  	max_str_index.push_back(0);
+
+  	for(int i=0; i<n; i++){
+  		if(a[i] < last_min){
+  			last_min = a[i];
+  			continue;
+  		} 
+
+  		if(a[i] < last_min){
+  			max_str_index.push_back(i-1);
+  			last_min = a[i];
+  			continue;
+  		}
+
+  		if(i ==n-1) max_str_index.push_back(n-1);
+  	}
+  	
+  	max is not being maintained at all?
+  	---------------------------------------
+  	
+  	No logic in this.
+  	-----------------------
+
+  	if consecutive or end in the vec, then it is a max str with single len
+
+  	This is a single loop so O(n).
+
+         (0)
+         
+         
+         10/30
+         -------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

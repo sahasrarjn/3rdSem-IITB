@@ -1,0 +1,90 @@
+secret-01.in
+unique
+      2       3      13
+secret-02.in
+unique
+      6      10      40
+secret-03.in
+unique
+      2       3      13
+secret-04.in
+unique
+      6      18      56
+secret-05.in
+not unique
+      2       4      17
+secret-06.in
+not unique
+      7      61     153
+secret-07.in
+not unique
+      7      61     153
+secret-08.in
+not unique
+      6      35     100
+secret-09.in
+not unique
+      7      89     237
+secret-11.in
+unique
+      2       3      13
+secret-12.in
+unique
+      2       3      13
+secret-13.in
+unique
+      2       3      13
+secret-14.in
+not unique
+      7      89     237
+secret-15.in
+unique
+      2       3      13
+secret-16.in
+not unique
+      7     209     597
+secret-17.in
+not unique
+      2       4      17
+secret-18.in
+not unique
+      7     209     597
+secret-19.in
+impossible
+      0       0       0
+secret-20.in
+not unique
+      7  400009 2355613
+secret-21.in
+not unique
+      6  200008 1177819
+secret-22.in
+not unique
+      6  200008 1177819
+secret-23.in
+not unique
+      7  400009 2355613
+secret-24.in
+impossible
+      0       0       0
+secret-25.in
+not unique
+      2       4      17
+secret-26.in
+not unique
+      2       4      17
+secret-27.in
+not unique
+      5  200007 1177817
+secret-28.in
+not unique
+      6  200009 1177830
+secret-29.in
+not unique
+      6 1000008 6777819
+secret-30.in
+not unique
+      5  200007 1177817
+secret-31.in
+not unique
+      6 1000008 6777819

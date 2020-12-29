@@ -1,0 +1,10 @@
+https://stackoverflow.com/questions/51520/how-to-get-an-absolute-file-path-in-python
+https://www.programiz.com/python-programming/list-comprehension
+https://www.w3schools.com/python/ref_func_map.asp
+http://cslibrary.stanford.edu/110/BinaryTrees.html
+https://www.geeksforgeeks.org/regular-expression-python-examples-set-1/
+https://www.geeksforgeeks.org/inheritance-in-python-inner-class/
+https://www.geeksforgeeks.org/modular-division/
+https://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/
+https://www.geeksforgeeks.org/python-__iter__-__next__-converting-object-iterator/
+https://stackoverflow.com/questions/3501382/checking-whether-a-variable-is-an-integer-or-not
